@@ -1,73 +1,54 @@
-# Boston House Pricing Analysis  
+# Boston House Pricing Prediction
 
-## Overview  
-This project focuses on analyzing housing prices in Boston using machine learning techniques. The objective is to build predictive models that estimate house prices based on various features such as crime rate, number of rooms, property tax, and other socio-economic factors.  
+## Project Overview
+This project analyzes the Boston housing dataset to predict house prices using various statistical and machine learning techniques. The dataset consists of 506 samples with 14 attributes related to housing features, neighborhood characteristics, and economic factors.
 
-## Dataset  
-The dataset used in this project is the **Boston Housing Dataset**, which includes 506 observations with 13 numerical input features and a target variable representing the median house price.  
+## Dataset Description
+The dataset contains the following features:
+- **CRIM**: Per capita crime rate by town
+- **ZN**: Proportion of residential land zoned for large lots
+- **INDUS**: Proportion of non-retail business acres per town
+- **CHAS**: Charles River dummy variable (1 if tract bounds river; 0 otherwise)
+- **NOX**: Nitrogen oxide concentration (parts per 10 million)
+- **RM**: Average number of rooms per dwelling
+- **AGE**: Proportion of owner-occupied units built before 1940
+- **DIS**: Weighted distances to employment centers
+- **RAD**: Accessibility to radial highways
+- **TAX**: Property tax rate per $10,000
+- **PTRATIO**: Pupil-teacher ratio by town
+- **OUTSIDERS**: Proportion of population considered outsiders
+- **LSTAT**: Percentage of lower status population
+- **Price**: Median value of owner-occupied homes in $1000s (Target Variable)
 
-## Objectives  
-- Perform **Exploratory Data Analysis (EDA)** to understand the dataset and key features.  
-- Preprocess the data by handling missing values, scaling features, and checking for multicollinearity.  
-- Implement regression models to predict house prices.  
-- Evaluate model performance using metrics such as **R² score, RMSE, and MAE**.  
+## Data Preprocessing
+- Checked for missing values and confirmed there were none.
+- Conducted exploratory data analysis (EDA) to understand correlations between variables.
+- Visualized relationships between different features and house prices using scatter plots and regression plots.
 
-## Software and Tools Requirements  
+## Exploratory Data Analysis (EDA)
+- **Correlation Analysis**: Examined the relationships between features and the target variable.
+  - RM (Number of Rooms) showed a strong positive correlation with house prices.
+  - LSTAT (Lower Status Population) had a strong negative correlation with house prices.
+  - Crime rate (CRIM) and other socio-economic indicators also had notable correlations.
+- **Visualization**:
+  - Scatter plots were generated to explore the relationship between features like RM, LSTAT, CHAS, and PTRATIO with house prices.
+  - Regression plots helped understand the linear relationships between features and price.
 
-To run this project, you need the following tools:  
+## Feature Engineering
+- Separated independent features (X) and the target variable (Y).
+- Identified key features that influence house pricing.
+- Normalized and scaled features for better model performance.
 
-1. [GitHub Account](https://github.com)  
-2. [VSCode IDE](https://code.visualstudio.com/)  
-3. [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)  
+## Model Building & Evaluation
+- Implemented multiple regression models to predict house prices.
+- Evaluated model performance using metrics such as RMSE and R-squared.
+- Applied feature selection techniques to improve model accuracy.
 
-## Methodology  
-1. **Data Exploration**:  
-   - Summary statistics, correlation heatmap, and feature distributions.  
-   - Detecting and handling outliers.  
-2. **Preprocessing**:  
-   - Handling missing values and scaling numerical features.  
-   - Feature engineering for better model performance.  
-3. **Model Training**:  
-   - Implemented regression models: **Linear Regression, Decision Tree, Random Forest, and Gradient Boosting**.  
-4. **Model Evaluation**:  
-   - Compared models using **R² score, Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE)**.  
+## Output & Results
+- The model successfully predicted house prices based on input features.
+- Identified significant factors influencing property values in Boston.
+- Provided insights into how crime rate, number of rooms, and socio-economic status affect housing prices.
 
-## Outputs  
+## Conclusion
+This project demonstrates an effective approach to predicting house prices using data-driven methods. The findings can assist in real estate decision-making and policy planning by identifying key factors affecting property values.
 
-### 1. Data Visualization  
-- **Correlation Heatmap:** Showed strong correlations between features and the target variable (e.g., RM and LSTAT were highly correlated with house prices).  
-- **Pairplot & Boxplots:** Helped visualize feature distributions and identify potential outliers.  
-
-### 2. Model Performance  
-| Model                 | R² Score | RMSE  | MAE  |
-|----------------------|---------|-------|------|
-| Linear Regression    | 74.6%   | 4.87  | 3.21 |
-| Decision Tree       | 86.2%   | 3.56  | 2.45 |
-| Random Forest       | 91.3%   | 2.91  | 1.89 |
-| Gradient Boosting   | **93.1%**   | **2.68**  | **1.76** |
-
-- **Feature Importance Analysis:** RM (average number of rooms) and LSTAT (lower-status population percentage) were the most influential predictors.  
-- **Residual Plot:** Demonstrated that **Gradient Boosting Regression** had the best-fitted predictions with minimal residual errors.  
-
-### 3. Key Insights  
-- **Gradient Boosting** performed the best with an **R² score of 93.1%**, making it the most accurate model for predicting house prices.  
-- Features like **RM, LSTAT, and PTRATIO** had the most impact on house prices.  
-- The dataset had some outliers, especially in the **CRIM and LSTAT** columns, which required treatment for better model performance.  
-
-### Visual Outputs  
-![Screenshot (3)](https://user-images.githubusercontent.com/68710115/218002077-25036700-ec64-4262-ad8f-53449f716f37.png)  
-![Screenshot (6)](https://user-images.githubusercontent.com/68710115/218002096-2a9ff497-d8f7-4dc6-98bd-12d6ce45ac37.png)  
-
-## Technologies Used  
-- Python  
-- Pandas, NumPy, Matplotlib, Seaborn  
-- Scikit-learn  
-- Jupyter Notebook  
-
-## Conclusion  
-This project showcases how machine learning models can effectively predict housing prices based on socio-economic and geographic factors. The findings can be used by real estate analysts to make informed decisions about property investments.  
-
-## Future Enhancements  
-- Experiment with deep learning models (ANNs) for price prediction.  
-- Integrate external factors such as interest rates and inflation.  
-- Deploy the model as a web application for real-time price estimation.  
